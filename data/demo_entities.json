@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Petroleos de Venezuela S.A.",
+    "country": "VE",
+    "country_name": "Venezuela",
+    "archetype": "trade",
+    "entity_id": "tA9blnIZJ8CO-RnLHLYwqw",
+    "description": "Venezuelan state oil company under comprehensive US sanctions"
+  },
+  {
+    "name": "Myanma Economic Holdings Public Company Limited",
+    "country": "MM",
+    "country_name": "Myanmar",
+    "archetype": "network",
+    "entity_id": "PNCfdPZenKKPQYzg0983yg",
+    "description": "Myanmar military conglomerate sanctioned after 2021 coup"
+  },
+  {
+    "name": "Lukoil",
+    "country": "RU",
+    "country_name": "Russia",
+    "archetype": "trade",
+    "entity_id": "eF5hsZhDO7_rfEX9aELqIg",
+    "description": "Russia's second largest oil company, sanctioned October 2025"
+  },
+  {
+    "name": "Korea Mining Development Trading Corporation",
+    "country": "KP",
+    "country_name": "North Korea",
+    "archetype": "network",
+    "entity_id": "743PV9hvik01AFVlWI-oTg",
+    "description": "North Korea's primary arms dealer, UN and OFAC sanctioned"
+  },
+  {
+    "name": "Samsung Electronics",
+    "country": "KR",
+    "country_name": "South Korea",
+    "archetype": "supply_chain",
+    "entity_id": "GG8YwuxZxcEm8MEU3csapw",
+    "description": "Global technology company — supply chain risk analysis"
+  },
+  {
+    "name": "National Iranian Oil Company",
+    "country": "IR",
+    "country_name": "Iran",
+    "archetype": "trade",
+    "entity_id": "xYCkQF4AB2p2YUI7EAL-YQ",
+    "description": "Iran's state oil company under comprehensive US and international sanctions"
+  }
+]

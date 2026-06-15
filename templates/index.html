@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Corporate Risk Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <!-- ============================ SEARCH STATE ============================ -->
+  <header id="search-view" class="search-view">
+    <div class="search-inner">
+      <h1 class="app-title">Corporate Risk Intelligence</h1>
+      <p class="app-subtitle">Powered by Sayari · World Bank · UN Comtrade · Anthropic</p>
+
+      <form id="search-form" class="search-form" autocomplete="off">
+        <div class="search-row">
+          <input id="search-input" class="search-input" type="text"
+                 placeholder="Enter a corporate entity name…" aria-label="Entity name" />
+          <select id="country-select" class="country-select" aria-label="Country">
+            <option value="">All Countries</option>
+            <option value="AE">United Arab Emirates</option>
+            <option value="RU">Russia</option>
+            <option value="IR">Iran</option>
+            <option value="CN">China</option>
+            <option value="US">United States</option>
+            <option value="GB">United Kingdom</option>
+            <option value="TR">Turkey</option>
+            <option value="IN">India</option>
+          </select>
+          <button type="submit" class="btn-analyze" id="search-button">Analyze</button>
+        </div>
+      </form>
+
+      <div class="demo-block">
+        <span class="demo-label">Or select a demo entity:</span>
+        <div class="demo-chips" id="demo-chips">
+          {% for e in demo_entities %}
+          <button class="demo-chip" data-name="{{ e.name }}" data-country="{{ e.country }}" data-entity-id="{{ e.entity_id }}">
+            {{ e.name }}<span class="chip-country">{{ e.country_name }}</span>
+            {% if e.archetype == 'trade' %}<span class="chip-archetype trade">Trade Data Available</span>{% elif e.archetype == 'network' %}<span class="chip-archetype network">Network Analysis</span>{% elif e.archetype == 'supply_chain' %}<span class="chip-archetype supply_chain">Supply Chain Risk</span>{% endif %}
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Disambiguation appears here -->
+      <section id="disambiguation" class="disambiguation hidden" aria-live="polite"></section>
+
+      <!-- Analyzing indicator -->
+      <div id="analyzing" class="analyzing hidden">
+        <span class="analyzing-text">Analyzing <strong id="analyzing-name"></strong>…</span>
+        <div class="source-dots">
+          <span class="dot" data-src="sayari">Sayari</span>
+          <span class="dot" data-src="worldbank">World Bank</span>
+          <span class="dot" data-src="comtrade">UN Comtrade</span>
+          <span class="dot" data-src="anthropic">Anthropic</span>
+        </div>
+      </div>
+
+      <p id="search-error" class="search-error hidden"></p>
+    </div>
+  </header>
+
+  <!-- ============================ DOSSIER STATE ============================ -->
+  <main id="dossier" class="dossier hidden">
+    <div class="dossier-controls">
+      <button id="back-button" class="btn-back">← New Search</button>
+    </div>
+    <div id="dossier-content"></div>
+  </main>
+
+  <!-- Slide-in entity panel (network node detail) -->
+  <aside id="entity-panel" class="entity-panel hidden" aria-hidden="true">
+    <button class="panel-close" id="panel-close" aria-label="Close">×</button>
+    <div id="panel-content"></div>
+  </aside>
+  <div id="panel-scrim" class="panel-scrim hidden"></div>
+
+  <!-- Tooltip element reused across the app -->
+  <div id="tooltip" class="tooltip hidden" role="tooltip"></div>
+
+  <script src="{{ url_for('static', filename='timeline.js') }}"></script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
