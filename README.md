@@ -1,8 +1,6 @@
 # Corporate Risk Intelligence
 *Powered by Sayari · World Bank · UN Comtrade · Anthropic*
 
-*Forward Deployed Engineer Technical Exercise — Sayari | Submitted by Danial Mirza, June 2026*
-
 ---
 
 ## What Does This Do?
