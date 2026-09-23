@@ -164,3 +164,4 @@ templates/
 ### Scenario Coverage
 
 This submission addresses both scenarios from the exercise brief. Scenario 1 (entity enrichment with external sources) is covered through World Bank, UN Comtrade, FATF, and Anthropic enrichment layered on top of Sayari entity data. Scenario 2 (analytics report) is covered through the six-section dossier with risk rating, network analysis, jurisdiction scoring, and trade intelligence. The platform is designed as a Proof of Concept client deliverable — something a Forward Deployed Engineer would demo to a potential Sayari customer.
+sample change for demo
